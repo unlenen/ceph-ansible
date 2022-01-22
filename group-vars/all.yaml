@@ -1,0 +1,26 @@
+dummy:
+ceph_origin: repository
+ceph_repository: community
+ceph_stable_release: pacific
+ip_version: ipv4
+mon_host_v1:
+  enabled: False
+  suffix: ':6789'
+mon_host_v2:
+  enabled: True
+  suffix: ':3300'
+public_network: 10.51.0.0/24
+cluster_network: "{{ public_network | regex_replace(' ', '') }}"
+osd_objectstore: bluestore
+radosgw_interface: vlan.4
+ceph_docker_image: "ceph/daemon"
+ceph_docker_image_tag: latest-pacific
+ceph_docker_registry: docker.io
+containerized_deployment: true
+dashboard_enabled: True
+dashboard_protocol: https
+dashboard_port: 8443
+dashboard_admin_user: admin
+dashboard_admin_user_ro: false
+dashboard_admin_password: NebiBaba123
+grafana_admin_password: NebiBaba123
