@@ -1,0 +1,44 @@
+[rgws:vars]
+ansible_connection=ssh
+ansible_user=ubuntu
+ansible_private_key_file=/mykey.pem
+ansible_ssh_common_args = '-o StrictHostKeyChecking=no'
+ansible_become=true
+
+[nfss:vars]
+ansible_connection=ssh
+ansible_user=ubuntu
+ansible_private_key_file=/mykey.pem
+ansible_ssh_common_args = '-o StrictHostKeyChecking=no'
+ansible_become=true
+
+[monitoring:vars]
+ansible_connection=ssh
+ansible_user=ubuntu
+ansible_private_key_file=/mykey.pem
+ansible_ssh_common_args = '-o StrictHostKeyChecking=no'
+ansible_become=true
+
+[monitoring]
+NFVSRV15 ansible_host=10.51.0.15
+
+[mons]
+NFVSRV03 ansible_host=10.51.0.3
+NFVSRV22 ansible_host=10.51.0.22
+NFVSRV15 ansible_host=10.51.0.15
+
+[mgrs]
+NFVSRV03 ansible_host=10.51.0.3
+NFVSRV22 ansible_host=10.51.0.22
+NFVSRV15 ansible_host=10.51.0.15
+
+[osds]
+NFVSRV03 ansible_host=10.51.0.3 devices="[ '/dev/sdb', '/dev/sdd', '/dev/sde', '/dev/sdf', '/dev/sdg' ]" dedicated_devices="[ '/dev/sdc' ]"
+NFVSRV22 ansible_host=10.51.0.22 devices="[ '/dev/sdb', '/dev/sdd', '/dev/sde', '/dev/sdf', '/dev/sdg' ]" dedicated_devices="[ '/dev/sdc' ]"
+NFVSRV15 ansible_host=10.51.0.15 devices="[ '/dev/sdb', '/dev/sdd', '/dev/sde', '/dev/sdf', '/dev/sdg' ]" dedicated_devices="[ '/dev/sdc' ]"
+
+[rgws]
+NFVSRV03 ansible_host=10.51.0.3
+
+[nfss]
+NFVSRV03 ansible_host=10.51.0.3
