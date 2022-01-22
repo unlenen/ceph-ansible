@@ -1,0 +1,1 @@
+git clone -b v6.0.22 https://github.com/ceph/ceph-ansible.git

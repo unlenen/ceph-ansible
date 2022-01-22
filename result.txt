@@ -1,0 +1,62 @@
+TASK [show ceph status for cluster ceph] ***************************************************************************
+Saturday 22 January 2022  03:02:32 +0000 (0:00:00.846)       0:15:44.768 ******
+ok: [NFVSRV03 -> NFVSRV03] =>
+  msg:
+  - '  cluster:'
+  - '    id:     e789cb86-69d2-4401-93f1-ba6b6f29d719'
+  - '    health: HEALTH_WARN'
+  - '            mons are allowing insecure global_id reclaim'
+  - ' '
+  - '  services:'
+  - '    mon:     3 daemons, quorum NFVSRV03,NFVSRV15,NFVSRV22 (age 13m)'
+  - '    mgr:     NFVSRV03(active, since 12s), standbys: NFVSRV15, NFVSRV22'
+  - '    osd:     15 osds: 15 up (since 7m), 15 in (since 28m)'
+  - '    rgw:     1 daemon active (1 hosts, 1 zones)'
+  - '    rgw-nfs: 1 daemon active (1 hosts, 1 zones)'
+  - ' '
+  - '  data:'
+  - '    pools:   5 pools, 105 pgs'
+  - '    objects: 225 objects, 5.7 KiB'
+  - '    usage:   1.4 TiB used, 14 TiB / 16 TiB avail'
+  - '    pgs:     105 active+clean'
+  - ' '
+
+PLAY RECAP *********************************************************************************************************
+NFVSRV03                   : ok=749  changed=50   unreachable=0    failed=0    skipped=554  rescued=1    ignored=0  
+NFVSRV15                   : ok=420  changed=29   unreachable=0    failed=0    skipped=541  rescued=0    ignored=0  
+NFVSRV22                   : ok=343  changed=18   unreachable=0    failed=0    skipped=501  rescued=0    ignored=0  
+
+
+INSTALLER STATUS ***************************************************************************************************
+Install Ceph Monitor           : Complete (0:08:36)
+Install Ceph Manager           : Complete (0:00:52)
+Install Ceph OSD               : Complete (0:01:07)
+Install Ceph RGW               : Complete (0:00:39)
+Install Ceph NFS               : Complete (0:00:39)
+Install Ceph Dashboard         : Complete (0:01:32)
+Install Ceph Grafana           : Complete (0:00:23)
+Install Ceph Node Exporter     : Complete (0:00:23)
+Install Ceph Crash             : Complete (0:00:22)
+
+Saturday 22 January 2022  03:02:32 +0000 (0:00:00.031)       0:15:44.799 ******
+===============================================================================
+ceph-handler : restart ceph osds daemon(s) ---------------------------------------------------------------- 326.32s
+ceph-handler : restart ceph mon daemon(s) ------------------------------------------------------------------ 44.95s
+ceph-handler : disable pg autoscale on pools --------------------------------------------------------------- 31.30s
+ceph-handler : re-enable pg autoscale on pools ------------------------------------------------------------- 30.29s
+ceph-dashboard : set the rgw credentials ------------------------------------------------------------------- 29.56s
+ceph-handler : restart ceph mgr daemon(s) ------------------------------------------------------------------ 23.04s
+ceph-dashboard : create dashboard admin user --------------------------------------------------------------- 14.36s
+ceph-osd : use ceph-volume lvm batch to create bluestore osds ----------------------------------------------- 6.49s
+ceph-container-common : pulling alertmanager/prometheus/grafana container images ---------------------------- 6.35s
+ceph-mgr : create ceph mgr keyring(s) on a mon node --------------------------------------------------------- 5.27s
+ceph-container-engine : allow apt to use a repository over https (debian) ----------------------------------- 5.07s
+ceph-config : look up for ceph-volume rejected devices ------------------------------------------------------ 4.92s
+ceph-config : look up for ceph-volume rejected devices ------------------------------------------------------ 4.54s
+ceph-config : look up for ceph-volume rejected devices ------------------------------------------------------ 4.50s
+ceph-config : look up for ceph-volume rejected devices ------------------------------------------------------ 4.47s
+ceph-config : look up for ceph-volume rejected devices ------------------------------------------------------ 4.23s
+ceph-config : look up for ceph-volume rejected devices ------------------------------------------------------ 4.18s
+ceph-config : look up for ceph-volume rejected devices ------------------------------------------------------ 4.16s
+gather and delegate facts ----------------------------------------------------------------------------------- 3.96s
+ceph-config : run 'ceph-volume lvm batch --report' to see how many osds are to be created ------------------- 3.23s
