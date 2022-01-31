@@ -42,6 +42,18 @@ ansible_private_key_file=/mykey.pem
 ansible_ssh_common_args = '-o StrictHostKeyChecking=no'
 ansible_become=true
 
+[mdss:vars]
+ansible_connection=ssh
+ansible_user=ubuntu
+ansible_private_key_file=/mykey.pem
+ansible_ssh_common_args = '-o StrictHostKeyChecking=no'
+ansible_become=true
+
+[mdss]
+NFVSRV03 ansible_host=10.51.0.3
+NFVSRV22 ansible_host=10.51.0.22
+NFVSRV15 ansible_host=10.51.0.15
+
 [monitoring]
 NFVSRV15 ansible_host=10.51.0.15
 
